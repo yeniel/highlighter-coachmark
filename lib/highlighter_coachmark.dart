@@ -357,7 +357,7 @@ class _CoachMarkClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     return Path.combine(ui.PathOperation.difference,
-        Path()..addRect(Offset.zero & size), Path()..addOval(rect));
+        Path()..addRect(Offset.zero & size), Path()..addRect(rect));
   }
 
   @override
@@ -387,7 +387,7 @@ class _CoachMarkPainter extends CustomPainter {
     switch (coachMarkShape) {
       case BoxShape.rectangle:
         canvas.drawRRect(
-            RRect.fromRectAndRadius(rect, Radius.circular(circle.width * 0.3)),
+            RRect.fromRectAndRadius(rect, Radius.zero),
             paint);
         break;
       case BoxShape.circle:
